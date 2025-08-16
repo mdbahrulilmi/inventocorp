@@ -51,10 +51,9 @@ Login → Lihat inventaris → Buat peminjaman → Cek status → Kembalikan bar
 Login → Kelola inventaris → Approve/reject peminjaman → Bikin laporan
 
 ## Tech Stack
-- Backend: Laravel/Node.js
+- Backend: Laravel
 - Database: MySQL
-- Frontend: React/Vue
-- Auth: JWT
+- Frontend: Livewire, Alpine Js, Tailwindcss
 
 ## Database
 - users (admin/user)
