@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\TextColumn;
 
 class InventoriesTable
 {
@@ -14,13 +15,17 @@ class InventoriesTable
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('title'),
+                TextColumn::make('code'),
+                TextColumn::make('category.title'),
+                TextColumn::make('available_quantity'),
+                TextColumn::make('quantity'),
+                TextColumn::make('location')
             ])
             ->filters([
                 //
             ])
             ->recordActions([
-                ViewAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([

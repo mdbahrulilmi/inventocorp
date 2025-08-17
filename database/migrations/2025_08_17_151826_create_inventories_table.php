@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('quantity')->default(0);
             $table->integer('available_quantity')->default(0);
             $table->string('location');
-            $table->string('status');
             $table->timestamps();
         });
     }

@@ -18,4 +18,13 @@ class EditInventory extends EditRecord
             DeleteAction::make(),
         ];
     }
+    
+    protected function getRedirectUrl(): string
+    {
+        // setelah create, redirect ke list
+        return $this->getResource()::getUrl('index');
+        
+        // atau langsung redirect ke dashboard
+        // return '/dashboard';
+    }
 }

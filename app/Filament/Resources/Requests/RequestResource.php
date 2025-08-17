@@ -7,19 +7,19 @@ use App\Filament\Resources\Requests\Pages\EditRequest;
 use App\Filament\Resources\Requests\Pages\ListRequests;
 use App\Filament\Resources\Requests\Schemas\RequestForm;
 use App\Filament\Resources\Requests\Tables\RequestsTable;
-use App\Models\Request;
+use App\Models\Loan;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+// use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
 
 class RequestResource extends Resource
 {
-    protected static ?string $model = Request::class;
+    protected static ?string $model = Loan::class;
 
     protected static ?int $navigationSort = 3;
 
@@ -59,11 +59,11 @@ class RequestResource extends Resource
         ];
     }
 
-    public static function getRecordRouteBindingEloquentQuery(): Builder
-    {
-        return parent::getRecordRouteBindingEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
+    // public static function getRecordRouteBindingEloquentQuery(): Builder
+    // {
+    //     return parent::getRecordRouteBindingEloquentQuery()
+    //         ->withoutGlobalScopes([
+    //             SoftDeletingScope::class,
+    //         ]);
+    // }
 }
