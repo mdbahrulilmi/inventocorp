@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('code')->unique();
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->integer('quantity')->default(0);
+            $table->integer('available_quantity')->default(0);
+            $table->string('location');
+            $table->string('status');
             $table->timestamps();
         });
     }

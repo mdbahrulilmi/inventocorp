@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('borrows', function (Blueprint $table) {
+        Schema::create('loans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->date('loan_date');
+            $table->date('due_date');
+            $table->date('return_date')->nullable();
+            $table->enum('status', ['borrowed', 'returned', 'overdue'])->default('borrowed');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('borrows');
+        Schema::dropIfExists('loans');
     }
 };
