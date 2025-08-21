@@ -12,4 +12,9 @@ class Loan extends Model
         'due_date',
         'status',
     ];
+
+    public function details()
+    {
+        return $this->hasMany(LoanDetail::class, 'loan_id');
+    }
 }

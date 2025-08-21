@@ -16,4 +16,14 @@ class ListBorrows extends ListRecords
             CreateAction::make(),
         ];
     }
+
+    public function getHeading(): string
+    {
+        return 'Loan History';
+    }
+
+    public function getTitle(): string
+    {
+        return 'Loan History';
+    }
 }
