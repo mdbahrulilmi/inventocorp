@@ -45,4 +45,9 @@ class Inventory extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    
+    public function getCategoryTitle()
+    {
+        return $this->category ? $this->category->title : null;
+    }
 }

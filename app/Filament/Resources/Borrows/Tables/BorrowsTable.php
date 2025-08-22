@@ -8,6 +8,8 @@ use Filament\Actions\EditAction;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\BadgeColumn;;
 
 class BorrowsTable
 {
@@ -18,31 +20,26 @@ class BorrowsTable
                 $query->where('user_id', Auth::id())
             )
             ->columns([
-                Tables\Columns\TextColumn::make('loan_date')
+                TextColumn::make('loan_date')
                     ->label('Borrow Date')
                     ->date('d/m/Y')
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('due_date')
+                TextColumn::make('due_date')
                     ->label('Due Date')
                     ->date('d/m/Y')
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('return_date')
+                TextColumn::make('return_date')
                     ->label('Return Date')
                     ->date('d/m/Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
-                Tables\Columns\BadgeColumn::make('status')
-                    ->colors([
-                        'success' => 'returned',
-                        'danger'  => 'overdue',
-                        'warning' => 'borrowed',
-                    ])
+                BadgeColumn::make('status')
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('details.item.title')
+                TextColumn::make('details.item.title')
                     ->label('Item Code')
                     ->listWithLineBreaks()
                     ->limit(20),

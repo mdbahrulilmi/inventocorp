@@ -2,10 +2,7 @@
 
 namespace App\Filament\Resources\Requests;
 
-use App\Filament\Resources\Requests\Pages\CreateRequest;
-use App\Filament\Resources\Requests\Pages\EditRequest;
 use App\Filament\Resources\Requests\Pages\ListRequests;
-use App\Filament\Resources\Requests\Schemas\RequestForm;
 use App\Filament\Resources\Requests\Tables\RequestsTable;
 use App\Models\Loan;
 use BackedEnum;
@@ -54,16 +51,6 @@ class RequestResource extends Resource
     {
         return [
             'index' => ListRequests::route('/'),
-            'create' => CreateRequest::route('/create'),
-            'edit' => EditRequest::route('/{record}/edit'),
         ];
     }
-
-    // public static function getRecordRouteBindingEloquentQuery(): Builder
-    // {
-    //     return parent::getRecordRouteBindingEloquentQuery()
-    //         ->withoutGlobalScopes([
-    //             SoftDeletingScope::class,
-    //         ]);
-    // }
 }
