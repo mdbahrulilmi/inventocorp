@@ -10,10 +10,6 @@ class ListRequests extends ListRecords
 {
     protected static string $resource = RequestResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            CreateAction::make(),
-        ];
-    }
+    protected ?string $heading = 'Requests';
+    protected static ?string $title = 'Request';
 }

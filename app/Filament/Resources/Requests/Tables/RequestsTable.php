@@ -32,15 +32,6 @@ class RequestsTable
                 ])
                 ->native(false),
             ])
-            ->filters([
-                // TrashedFilter::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    // ForceDeleteBulkAction::make(),
-                    // RestoreBulkAction::make(),
-                ]),
-            ]);
+            ->emptyStateHeading('No Request');
     }
 }

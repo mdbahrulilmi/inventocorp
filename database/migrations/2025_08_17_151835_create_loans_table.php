@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('loan_date');
             $table->date('due_date');
             $table->date('return_date')->nullable();
-            $table->enum('status', ['requested','accepted','rejected','borrowed', 'returned', 'overdue'])->default('requested');
+            $table->enum('status', ['requested','accepted','rejected','expired','borrowed', 'returned', 'overdue'])->default('requested');
             $table->timestamps();
         });
     }
