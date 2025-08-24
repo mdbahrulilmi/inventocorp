@@ -29,6 +29,11 @@ class CategoryResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'Category';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->role === 'admin';
+    }
+
     public static function form(Schema $schema): Schema
     {
         return CategoryForm::configure($schema);

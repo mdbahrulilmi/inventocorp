@@ -18,6 +18,10 @@ class AvailableItems extends Page implements HasTable
     protected string $view = 'filament.pages.available-items';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Inbox;
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->role === 'member';
+    }
 
     public function table(Tables\Table $table): Tables\Table
     {

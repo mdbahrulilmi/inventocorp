@@ -26,6 +26,14 @@ class DatabaseSeeder extends Seeder
             'password'=> '1',
         ]);
 
+        User::factory()->create([
+            'name' => 'member',
+            'email' => 'member@member.com',
+            'phone' => '0',
+            'role' => 'member',
+            'password'=> '1',
+        ]);
+
         Category::create([
             'title' => 'Laptop',
         ]);

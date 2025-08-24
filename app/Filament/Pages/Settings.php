@@ -16,4 +16,9 @@ class Settings extends Page
     protected static string | UnitEnum | null $navigationGroup = 'Admin';
 
     protected static ?int $navigationSort = 10;
+
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->role === 'admin';
+    }
 }

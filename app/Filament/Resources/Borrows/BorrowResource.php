@@ -23,6 +23,11 @@ class BorrowResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'Borrow';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->role === 'member';
+    }
+
     public static function form(Schema $schema): Schema
     {
         return BorrowForm::configure($schema);

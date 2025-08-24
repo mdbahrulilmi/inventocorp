@@ -28,7 +28,12 @@ class RequestResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Admin';
 
-    // protected static ?string $recordTitleAttribute = 'Request';
+    protected static ?string $recordTitleAttribute = 'Request';
+
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->role === 'admin';
+    }
 
 
     

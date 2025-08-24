@@ -27,9 +27,11 @@ class Report extends Page implements HasTable
 
     protected static string | UnitEnum | null $navigationGroup = 'Admin';
 
-    /**
-     * Tabel laporan
-     */
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->role === 'admin';
+    }
+
     public function table(Tables\Table $table): Tables\Table
     {
         return $table
